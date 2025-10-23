@@ -1429,20 +1429,6 @@
 }, {
   "@id" : "_:genid333",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://w3id.org/rec#Space"
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@value" : "has part"
-  } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://w3id.org/rec#hasPart"
-  } ]
-}, {
-  "@id" : "_:genid334",
-  "http://www.w3.org/ns/shacl#class" : [ {
     "@id" : "https://w3id.org/rec#Geometry"
   } ],
   "http://www.w3.org/ns/shacl#description" : [ {
@@ -1459,7 +1445,32 @@
     "@id" : "https://w3id.org/rec#geometry"
   } ]
 }, {
+  "@id" : "_:genid334",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://w3id.org/rec#Space"
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@value" : "has part"
+  } ],
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://w3id.org/rec#hasPart"
+  } ]
+}, {
   "@id" : "_:genid335",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@value" : "is location of"
+  } ],
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://w3id.org/rec#isLocationOf"
+  } ]
+}, {
+  "@id" : "_:genid336",
   "http://www.w3.org/ns/shacl#class" : [ {
     "@id" : "https://w3id.org/rec#Georeference"
   } ],
@@ -1478,17 +1489,6 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "https://w3id.org/rec#georeference"
-  } ]
-}, {
-  "@id" : "_:genid336",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@value" : "is location of"
-  } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://w3id.org/rec#isLocationOf"
   } ]
 }, {
   "@id" : "_:genid337",
@@ -1712,50 +1712,60 @@
   } ]
 }, {
   "@id" : "_:genid373",
-  "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "Equipment is an exclusive top class."
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@value" : "is fed by"
   } ],
-  "http://www.w3.org/ns/shacl#not" : [ {
-    "@id" : "_:genid374"
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://w3id.org/rec#isFedBy"
   } ]
 }, {
   "@id" : "_:genid374",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Quantity"
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Point"
+  } ],
+  "http://www.w3.org/ns/shacl#message" : [ {
+    "@value" : "A piece of Equipment can have Points."
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#hasPoint"
   } ]
 }, {
   "@id" : "_:genid375",
   "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "Equipment is an exclusive top class."
+    "@value" : "Equipment can be part of a Collection, System or other Equipment."
   } ],
-  "http://www.w3.org/ns/shacl#not" : [ {
+  "http://www.w3.org/ns/shacl#or" : [ {
     "@id" : "_:genid376"
-  } ]
-}, {
-  "@id" : "_:genid376",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Collection"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#isPartOf"
   } ]
 }, {
   "@id" : "_:genid377",
-  "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "Equipment is an exclusive top class."
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Equipment"
   } ],
-  "http://www.w3.org/ns/shacl#not" : [ {
-    "@id" : "_:genid378"
+  "http://www.w3.org/ns/shacl#message" : [ {
+    "@value" : "A piece of Equipment's parts should be always other Equipment."
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#hasPart"
   } ]
 }, {
   "@id" : "_:genid378",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Point"
-  } ]
-}, {
-  "@id" : "_:genid379",
   "http://www.w3.org/ns/shacl#message" : [ {
     "@value" : "Equipment is an exclusive top class."
   } ],
   "http://www.w3.org/ns/shacl#not" : [ {
-    "@id" : "_:genid380"
+    "@id" : "_:genid379"
+  } ]
+}, {
+  "@id" : "_:genid379",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Substance"
   } ]
 }, {
   "@id" : "_:genid38",
@@ -1769,52 +1779,51 @@
   } ]
 }, {
   "@id" : "_:genid380",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Location"
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@value" : "feeds"
+  } ],
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://w3id.org/rec#feeds"
   } ]
 }, {
   "@id" : "_:genid381",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Point"
-  } ],
-  "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "A piece of Equipment can have Points."
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#hasPoint"
-  } ]
-}, {
-  "@id" : "_:genid382",
-  "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "Equipment can be part of a Collection, System or other Equipment."
-  } ],
-  "http://www.w3.org/ns/shacl#or" : [ {
-    "@id" : "_:genid383"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#isPartOf"
-  } ]
-}, {
-  "@id" : "_:genid384",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Equipment"
-  } ],
-  "http://www.w3.org/ns/shacl#message" : [ {
-    "@value" : "A piece of Equipment's parts should be always other Equipment."
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#hasPart"
-  } ]
-}, {
-  "@id" : "_:genid385",
   "http://www.w3.org/ns/shacl#message" : [ {
     "@value" : "A piece of Equipment can be located only at a Location/Space"
   } ],
   "http://www.w3.org/ns/shacl#or" : [ {
-    "@id" : "_:genid386"
+    "@id" : "_:genid382"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "https://brickschema.org/schema/1.4/Brick#hasLocation"
+  } ]
+}, {
+  "@id" : "_:genid383",
+  "http://www.w3.org/ns/shacl#message" : [ {
+    "@value" : "Equipment is an exclusive top class."
+  } ],
+  "http://www.w3.org/ns/shacl#not" : [ {
+    "@id" : "_:genid384"
+  } ]
+}, {
+  "@id" : "_:genid384",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Collection"
+  } ]
+}, {
+  "@id" : "_:genid385",
+  "http://www.w3.org/ns/shacl#message" : [ {
+    "@value" : "Equipment is an exclusive top class."
+  } ],
+  "http://www.w3.org/ns/shacl#not" : [ {
+    "@id" : "_:genid386"
+  } ]
+}, {
+  "@id" : "_:genid386",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Point"
   } ]
 }, {
   "@id" : "_:genid387",
@@ -1827,29 +1836,20 @@
 }, {
   "@id" : "_:genid388",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://brickschema.org/schema/1.4/Brick#Substance"
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Location"
   } ]
 }, {
   "@id" : "_:genid389",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@value" : "feeds"
+  "http://www.w3.org/ns/shacl#message" : [ {
+    "@value" : "Equipment is an exclusive top class."
   } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://w3id.org/rec#feeds"
+  "http://www.w3.org/ns/shacl#not" : [ {
+    "@id" : "_:genid390"
   } ]
 }, {
   "@id" : "_:genid390",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@value" : "is fed by"
-  } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://w3id.org/rec#isFedBy"
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://brickschema.org/schema/1.4/Brick#Quantity"
   } ]
 }, {
   "@id" : "_:genid391",
@@ -3753,25 +3753,25 @@
   "http://www.w3.org/ns/shacl#node" : [ {
     "@id" : "_:genid373"
   }, {
+    "@id" : "_:genid374"
+  }, {
     "@id" : "_:genid375"
   }, {
     "@id" : "_:genid377"
   }, {
-    "@id" : "_:genid379"
+    "@id" : "_:genid378"
+  }, {
+    "@id" : "_:genid380"
   }, {
     "@id" : "_:genid381"
   }, {
-    "@id" : "_:genid382"
-  }, {
-    "@id" : "_:genid384"
+    "@id" : "_:genid383"
   }, {
     "@id" : "_:genid385"
   }, {
     "@id" : "_:genid387"
   }, {
     "@id" : "_:genid389"
-  }, {
-    "@id" : "_:genid390"
   } ]
 }, {
   "@id" : "https://brickschema.org/schema/1.4/Brick#Ethernet_Port",

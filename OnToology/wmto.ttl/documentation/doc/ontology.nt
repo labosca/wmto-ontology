@@ -3888,27 +3888,27 @@ _:genid331 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Architecture
 <https://w3id.org/rec#Space> <http://www.w3.org/2000/01/rdf-schema#comment> "A contiguous part of the physical world that contains or can contain sub-spaces. E.g., a Region can contain many Sites, which in turn can contain many Buildings." .
 <https://w3id.org/rec#Space> <http://www.w3.org/2000/01/rdf-schema#label> "Space" .
 <https://w3id.org/rec#Space> <http://www.w3.org/ns/shacl#property> _:genid333 .
-_:genid333 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#hasPart> .
-_:genid333 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid333 <http://www.w3.org/ns/shacl#name> "has part" .
-_:genid333 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Space> .
+_:genid333 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#geometry> .
+_:genid333 <http://www.w3.org/ns/shacl#name> "geometry" .
+_:genid333 <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid333 <http://www.w3.org/ns/shacl#description> "Polygon representing the spatial extent of this Space." .
+_:genid333 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Geometry> .
 <https://w3id.org/rec#Space> <http://www.w3.org/ns/shacl#property> _:genid334 .
-_:genid334 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#geometry> .
-_:genid334 <http://www.w3.org/ns/shacl#name> "geometry" .
-_:genid334 <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-_:genid334 <http://www.w3.org/ns/shacl#description> "Polygon representing the spatial extent of this Space." .
-_:genid334 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Geometry> .
+_:genid334 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#hasPart> .
+_:genid334 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid334 <http://www.w3.org/ns/shacl#name> "has part" .
+_:genid334 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Space> .
 <https://w3id.org/rec#Space> <http://www.w3.org/ns/shacl#property> _:genid335 .
-_:genid335 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#georeference> .
+_:genid335 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#isLocationOf> .
 _:genid335 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid335 <http://www.w3.org/ns/shacl#name> "georeference" .
-_:genid335 <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-_:genid335 <http://www.w3.org/ns/shacl#description> "A georeference creates a relationship between the local coordinate system used within a building (e.g., measured in meters) and a geographic coordinate system (e.g., lat, long, alt), such that locally placed Spaces can be resolved and rendered in that geographic coordinate system (e.g., for mapping purposes)." .
-_:genid335 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Georeference> .
+_:genid335 <http://www.w3.org/ns/shacl#name> "is location of" .
 <https://w3id.org/rec#Space> <http://www.w3.org/ns/shacl#property> _:genid336 .
-_:genid336 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#isLocationOf> .
+_:genid336 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#georeference> .
 _:genid336 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid336 <http://www.w3.org/ns/shacl#name> "is location of" .
+_:genid336 <http://www.w3.org/ns/shacl#name> "georeference" .
+_:genid336 <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid336 <http://www.w3.org/ns/shacl#description> "A georeference creates a relationship between the local coordinate system used within a building (e.g., measured in meters) and a geographic coordinate system (e.g., lat, long, alt), such that locally placed Spaces can be resolved and rendered in that geographic coordinate system (e.g., for mapping purposes)." .
+_:genid336 <http://www.w3.org/ns/shacl#class> <https://w3id.org/rec#Georeference> .
 <https://w3id.org/rec#Space> <http://www.w3.org/ns/shacl#property> _:genid337 .
 _:genid337 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#isPartOf> .
 _:genid337 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
@@ -4434,49 +4434,49 @@ _:genid372 <http://www.w3.org/ns/shacl#predicate> <https://brickschema.org/schem
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/2000/01/rdf-schema#label> "Equipment" .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/2004/02/skos/core#definition> "devices that serve all or part of the building and may include electric power, lighting, transportation, or service water heating, including, but not limited to, furnaces, boilers, air conditioners, heat pumps, chillers, water heaters, lamps, luminaires, ballasts, elevators, escalators, or other devices or installations."@en .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid373 .
-_:genid373 <http://www.w3.org/ns/shacl#not> _:genid374 .
-_:genid374 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Quantity> .
-_:genid373 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
+_:genid373 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#isFedBy> .
+_:genid373 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid373 <http://www.w3.org/ns/shacl#name> "is fed by" .
+<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid374 .
+_:genid374 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasPoint> .
+_:genid374 <http://www.w3.org/ns/shacl#message> "A piece of Equipment can have Points." .
+_:genid374 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Point> .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid375 .
-_:genid375 <http://www.w3.org/ns/shacl#not> _:genid376 .
-_:genid376 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Collection> .
-_:genid375 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
+_:genid375 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#isPartOf> .
+_:genid375 <http://www.w3.org/ns/shacl#or> _:genid376 .
+_:genid375 <http://www.w3.org/ns/shacl#message> "Equipment can be part of a Collection, System or other Equipment." .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid377 .
-_:genid377 <http://www.w3.org/ns/shacl#not> _:genid378 .
-_:genid378 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Point> .
-_:genid377 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
-<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid379 .
-_:genid379 <http://www.w3.org/ns/shacl#not> _:genid380 .
-_:genid380 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Location> .
-_:genid379 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
+_:genid377 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasPart> .
+_:genid377 <http://www.w3.org/ns/shacl#message> "A piece of Equipment's parts should be always other Equipment." .
+_:genid377 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Equipment> .
+<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid378 .
+_:genid378 <http://www.w3.org/ns/shacl#not> _:genid379 .
+_:genid379 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Substance> .
+_:genid378 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
+<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid380 .
+_:genid380 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#feeds> .
+_:genid380 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid380 <http://www.w3.org/ns/shacl#name> "feeds" .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid381 .
-_:genid381 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasPoint> .
-_:genid381 <http://www.w3.org/ns/shacl#message> "A piece of Equipment can have Points." .
-_:genid381 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Point> .
-<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid382 .
-_:genid382 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#isPartOf> .
-_:genid382 <http://www.w3.org/ns/shacl#or> _:genid383 .
-_:genid382 <http://www.w3.org/ns/shacl#message> "Equipment can be part of a Collection, System or other Equipment." .
-<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid384 .
-_:genid384 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasPart> .
-_:genid384 <http://www.w3.org/ns/shacl#message> "A piece of Equipment's parts should be always other Equipment." .
-_:genid384 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Equipment> .
+_:genid381 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasLocation> .
+_:genid381 <http://www.w3.org/ns/shacl#or> _:genid382 .
+_:genid381 <http://www.w3.org/ns/shacl#message> "A piece of Equipment can be located only at a Location/Space" .
+<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid383 .
+_:genid383 <http://www.w3.org/ns/shacl#not> _:genid384 .
+_:genid384 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Collection> .
+_:genid383 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid385 .
-_:genid385 <http://www.w3.org/ns/shacl#path> <https://brickschema.org/schema/1.4/Brick#hasLocation> .
-_:genid385 <http://www.w3.org/ns/shacl#or> _:genid386 .
-_:genid385 <http://www.w3.org/ns/shacl#message> "A piece of Equipment can be located only at a Location/Space" .
+_:genid385 <http://www.w3.org/ns/shacl#not> _:genid386 .
+_:genid386 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Point> .
+_:genid385 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid387 .
 _:genid387 <http://www.w3.org/ns/shacl#not> _:genid388 .
-_:genid388 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Substance> .
+_:genid388 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Location> .
 _:genid387 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
 <https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid389 .
-_:genid389 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#feeds> .
-_:genid389 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid389 <http://www.w3.org/ns/shacl#name> "feeds" .
-<https://brickschema.org/schema/1.4/Brick#Equipment> <http://www.w3.org/ns/shacl#node> _:genid390 .
-_:genid390 <http://www.w3.org/ns/shacl#path> <https://w3id.org/rec#isFedBy> .
-_:genid390 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid390 <http://www.w3.org/ns/shacl#name> "is fed by" .
+_:genid389 <http://www.w3.org/ns/shacl#not> _:genid390 .
+_:genid390 <http://www.w3.org/ns/shacl#class> <https://brickschema.org/schema/1.4/Brick#Quantity> .
+_:genid389 <http://www.w3.org/ns/shacl#message> "Equipment is an exclusive top class." .
 # 
 <https://brickschema.org/schema/1.4/Brick#Ethernet_Port> <http://www.w3.org/2000/01/rdf-schema#label> "Ethernet Port"@en .
 <https://brickschema.org/schema/1.4/Brick#Ethernet_Port> <http://www.w3.org/ns/shacl#rule> _:genid391 .

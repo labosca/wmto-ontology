@@ -6680,30 +6680,30 @@ Um bot:Storey abrange tanto as zonas acima como abaixo do solo; por exemplo, um 
         </shacl:property>
     </owl:Class>
     <rdf:Description rdf:nodeID="genid333">
-        <shacl:class rdf:resource="https://w3id.org/rec#Space"/>
-        <shacl:name>has part</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://w3id.org/rec#hasPart"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid334">
         <shacl:class rdf:resource="https://w3id.org/rec#Geometry"/>
         <shacl:description>Polygon representing the spatial extent of this Space.</shacl:description>
         <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
         <shacl:name>geometry</shacl:name>
         <shacl:path rdf:resource="https://w3id.org/rec#geometry"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid334">
+        <shacl:class rdf:resource="https://w3id.org/rec#Space"/>
+        <shacl:name>has part</shacl:name>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="https://w3id.org/rec#hasPart"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid335">
+        <shacl:name>is location of</shacl:name>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="https://w3id.org/rec#isLocationOf"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid336">
         <shacl:class rdf:resource="https://w3id.org/rec#Georeference"/>
         <shacl:description>A georeference creates a relationship between the local coordinate system used within a building (e.g., measured in meters) and a geographic coordinate system (e.g., lat, long, alt), such that locally placed Spaces can be resolved and rendered in that geographic coordinate system (e.g., for mapping purposes).</shacl:description>
         <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
         <shacl:name>georeference</shacl:name>
         <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
         <shacl:path rdf:resource="https://w3id.org/rec#georeference"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid336">
-        <shacl:name>is location of</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://w3id.org/rec#isLocationOf"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid337">
         <shacl:class rdf:resource="https://w3id.org/rec#Space"/>
@@ -7735,74 +7735,40 @@ Um bot:Storey abrange tanto as zonas acima como abaixo do solo; por exemplo, um 
         <rdfs:label>Equipment</rdfs:label>
         <skos:definition xml:lang="en">devices that serve all or part of the building and may include electric power, lighting, transportation, or service water heating, including, but not limited to, furnaces, boilers, air conditioners, heat pumps, chillers, water heaters, lamps, luminaires, ballasts, elevators, escalators, or other devices or installations.</skos:definition>
         <shacl:node rdf:nodeID="genid373"/>
+        <shacl:node rdf:nodeID="genid374"/>
         <shacl:node rdf:nodeID="genid375"/>
         <shacl:node rdf:nodeID="genid377"/>
-        <shacl:node rdf:nodeID="genid379"/>
+        <shacl:node rdf:nodeID="genid378"/>
+        <shacl:node rdf:nodeID="genid380"/>
         <shacl:node rdf:nodeID="genid381"/>
-        <shacl:node rdf:nodeID="genid382"/>
-        <shacl:node rdf:nodeID="genid384"/>
+        <shacl:node rdf:nodeID="genid383"/>
         <shacl:node rdf:nodeID="genid385"/>
         <shacl:node rdf:nodeID="genid387"/>
         <shacl:node rdf:nodeID="genid389"/>
-        <shacl:node rdf:nodeID="genid390"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid373">
-        <shacl:message>Equipment is an exclusive top class.</shacl:message>
-        <shacl:not>
-            <rdf:Description>
-                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Quantity"/>
-            </rdf:Description>
-        </shacl:not>
+        <shacl:name>is fed by</shacl:name>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="https://w3id.org/rec#isFedBy"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid375">
-        <shacl:message>Equipment is an exclusive top class.</shacl:message>
-        <shacl:not>
-            <rdf:Description>
-                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Collection"/>
-            </rdf:Description>
-        </shacl:not>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid377">
-        <shacl:message>Equipment is an exclusive top class.</shacl:message>
-        <shacl:not>
-            <rdf:Description>
-                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Point"/>
-            </rdf:Description>
-        </shacl:not>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid379">
-        <shacl:message>Equipment is an exclusive top class.</shacl:message>
-        <shacl:not>
-            <rdf:Description>
-                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Location"/>
-            </rdf:Description>
-        </shacl:not>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid381">
+    <rdf:Description rdf:nodeID="genid374">
         <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Point"/>
         <shacl:message>A piece of Equipment can have Points.</shacl:message>
         <shacl:path rdf:resource="https://brickschema.org/schema/1.4/Brick#hasPoint"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid382">
+    <rdf:Description rdf:nodeID="genid375">
         <shacl:message>Equipment can be part of a Collection, System or other Equipment.</shacl:message>
         <shacl:or>
             <rdf:Description/>
         </shacl:or>
         <shacl:path rdf:resource="https://brickschema.org/schema/1.4/Brick#isPartOf"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid384">
+    <rdf:Description rdf:nodeID="genid377">
         <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Equipment"/>
         <shacl:message>A piece of Equipment&apos;s parts should be always other Equipment.</shacl:message>
         <shacl:path rdf:resource="https://brickschema.org/schema/1.4/Brick#hasPart"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid385">
-        <shacl:message>A piece of Equipment can be located only at a Location/Space</shacl:message>
-        <shacl:or>
-            <rdf:Description/>
-        </shacl:or>
-        <shacl:path rdf:resource="https://brickschema.org/schema/1.4/Brick#hasLocation"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid387">
+    <rdf:Description rdf:nodeID="genid378">
         <shacl:message>Equipment is an exclusive top class.</shacl:message>
         <shacl:not>
             <rdf:Description>
@@ -7810,15 +7776,49 @@ Um bot:Storey abrange tanto as zonas acima como abaixo do solo; por exemplo, um 
             </rdf:Description>
         </shacl:not>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid389">
+    <rdf:Description rdf:nodeID="genid380">
         <shacl:name>feeds</shacl:name>
         <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
         <shacl:path rdf:resource="https://w3id.org/rec#feeds"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid390">
-        <shacl:name>is fed by</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://w3id.org/rec#isFedBy"/>
+    <rdf:Description rdf:nodeID="genid381">
+        <shacl:message>A piece of Equipment can be located only at a Location/Space</shacl:message>
+        <shacl:or>
+            <rdf:Description/>
+        </shacl:or>
+        <shacl:path rdf:resource="https://brickschema.org/schema/1.4/Brick#hasLocation"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid383">
+        <shacl:message>Equipment is an exclusive top class.</shacl:message>
+        <shacl:not>
+            <rdf:Description>
+                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Collection"/>
+            </rdf:Description>
+        </shacl:not>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid385">
+        <shacl:message>Equipment is an exclusive top class.</shacl:message>
+        <shacl:not>
+            <rdf:Description>
+                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Point"/>
+            </rdf:Description>
+        </shacl:not>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid387">
+        <shacl:message>Equipment is an exclusive top class.</shacl:message>
+        <shacl:not>
+            <rdf:Description>
+                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Location"/>
+            </rdf:Description>
+        </shacl:not>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid389">
+        <shacl:message>Equipment is an exclusive top class.</shacl:message>
+        <shacl:not>
+            <rdf:Description>
+                <shacl:class rdf:resource="https://brickschema.org/schema/1.4/Brick#Quantity"/>
+            </rdf:Description>
+        </shacl:not>
     </rdf:Description>
     <rdf:Description rdf:about="https://brickschema.org/schema/1.4/Brick#Ethernet_Port">
         <rdfs:label xml:lang="en">Ethernet Port</rdfs:label>
