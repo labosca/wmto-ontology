@@ -70,8 +70,6 @@ Consistent naming conventions ensure clarity and usability:
 - **Classes**: Singular, capitalized, Pascal Case for compound words (e.g., `WorkplaceAllocation`)
 - **Properties**: Lower case Camel Case (e.g., `allocationDate`)
 - **Individuals**: Capitalized words
-- **Labels**: `rdfs:label` for expanded names with spaces
-- **Comments**: `rdfs:comment` for definitions and documentation
 
 ## Technical Implementation
 
