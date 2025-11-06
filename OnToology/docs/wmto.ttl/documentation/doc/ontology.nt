@@ -1,0 +1,507 @@
+<https://w3id.org/wmto#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/wmto/v1.0> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/org#> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <http://xmlns.com/foaf/0.1/> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <https://brickschema.org/schema/Brick#> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <https://schema.org/> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/bot-0.3.2> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/rec/full/3.3/> .
+<https://w3id.org/wmto#> <http://purl.org/dc/elements/1.1/creator> "Marta Boscariol" .
+<https://w3id.org/wmto#> <http://purl.org/dc/elements/1.1/description> "The Workplace Management of the University of Torino Ontology (WMTO) is a multi-domain ontological framework that integrates organizational, spatial, and asset-related knowledge for workplace management. The ontology selectively imports classes, properties, and axioms from six established vocabularies rather than incorporating them entirely: BOT for building topology and spatial hierarchies, REC for real estate and furniture assets, Brick for ICT equipment, ORG for organizational structure, FOAF for employee personal details, and Schema.org for events and cross-domain properties. WMTO is structured around three operational domains—Human Resources (HR) for employee information and organizational membership, Facilities Management (FM) for spatial topology and furniture inventory, and ICT management for equipment tracking and user allocation. This modular approach enables unified semantic representation across traditionally siloed organizational functions, facilitating integrated queries spanning multiple organizational domains." .
+<https://w3id.org/wmto#> <http://purl.org/dc/elements/1.1/title> "Workplace Management of the University of Torino Ontology (WMTO)" .
+<https://w3id.org/wmto#> <http://purl.org/dc/terms/created> "2025-06-30"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wmto#> <http://purl.org/dc/terms/issued> "2025-10-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/wmto#> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/wmto#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "wmto" .
+<https://w3id.org/wmto#> <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/wmto/> .
+<https://w3id.org/wmto#> <http://www.w3.org/2002/07/owl#versionInfo> "v1.0" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rec#Person> .
+# 
+# https://schema.org/Person
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# https://w3id.org/rec#Person
+<https://w3id.org/rec#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://schema.org/employmentType
+<https://schema.org/employmentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.org/employmentType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/org#Post> .
+<https://schema.org/employmentType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#EmploymentTypeEnum> .
+<https://schema.org/employmentType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship)."@en .
+<https://schema.org/employmentType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://schema.org/employmentType> .
+<https://schema.org/employmentType> <http://www.w3.org/2000/01/rdf-schema#label> "employmentType"@en .
+# 
+# https://schema.org/employmentUnit
+<https://schema.org/employmentUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://schema.org/employmentUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/org#OrganizationalUnit> .
+<https://schema.org/employmentUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed."@en .
+<https://schema.org/employmentUnit> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://pending.schema.org/employmentUnit> .
+<https://schema.org/employmentUnit> <http://www.w3.org/2000/01/rdf-schema#label> "employmentUnit"@en .
+# 
+# https://w3id.org/wmto#assetType
+<https://w3id.org/wmto#assetType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#assetType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rec#Asset> .
+<https://w3id.org/wmto#assetType> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an Asset (e.g. ICT Asset, Furniture) to its TypeEnum individual, depending on those defined by the use case." .
+<https://w3id.org/wmto#assetType> <http://www.w3.org/2000/01/rdf-schema#label> "assetType" .
+# 
+# https://w3id.org/wmto#definesAAOf
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wmto#isDefinedByAA> .
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wmto#AssetAllocation> .
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rec#Asset> .
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an Asset Allocation instance to a piece of Furniture/ICTEquipment" .
+<https://w3id.org/wmto#definesAAOf> <http://www.w3.org/2000/01/rdf-schema#label> "definesAssetAllocationOf" .
+# 
+# https://w3id.org/wmto#definesWPAOf
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wmto#isDefinedByWPA> .
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wmto#WPAllocation> .
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rec#Office> .
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/2000/01/rdf-schema#comment> "To link a WorkPlace Allocation instance to a Space/Office/Workplace" .
+<https://w3id.org/wmto#definesWPAOf> <http://www.w3.org/2000/01/rdf-schema#label> "definesWorkPlaceAllocationOf" .
+# 
+# https://w3id.org/wmto#hasAA
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wmto#isAATo> .
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/rec#Room> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://xmlns.com/foaf/0.1/Agent> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#AssetAllocation> .
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an Agent (Person, OrgUnit, Org) or a Room (e.g., Office) to an Asset Allocation instance" .
+<https://w3id.org/wmto#hasAA> <http://www.w3.org/2000/01/rdf-schema#label> "hasAssetAllocation" .
+# 
+# https://w3id.org/wmto#hasWPA
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/wmto#isWPATo> .
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Person> .
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#WPAllocation> .
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/2000/01/rdf-schema#comment> "To link a Person/employee to a WorkPlaceAllocation instance" .
+<https://w3id.org/wmto#hasWPA> <http://www.w3.org/2000/01/rdf-schema#label> "hasWorkPlaceAllocation" .
+# 
+# https://w3id.org/wmto#isAATo
+<https://w3id.org/wmto#isAATo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#isAATo> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wmto#AssetAllocation> .
+<https://w3id.org/wmto#isAATo> <http://www.w3.org/2000/01/rdf-schema#range> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/rec#Room> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://xmlns.com/foaf/0.1/Agent> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#isAATo> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an AssetAllocation instance to an Agent (Person or Organization/OrgUnit) or a Room (e.g., Office)" .
+<https://w3id.org/wmto#isAATo> <http://www.w3.org/2000/01/rdf-schema#label> "isAssetAllocationTo" .
+# 
+# https://w3id.org/wmto#isDefinedByAA
+<https://w3id.org/wmto#isDefinedByAA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#isDefinedByAA> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rec#Asset> .
+<https://w3id.org/wmto#isDefinedByAA> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#AssetAllocation> .
+<https://w3id.org/wmto#isDefinedByAA> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an Asset (e.g. a piece of Furniture/ICTEquipment) to an Asset Allocation instance" .
+<https://w3id.org/wmto#isDefinedByAA> <http://www.w3.org/2000/01/rdf-schema#label> "isDefinedByAssetAllocation" .
+# 
+# https://w3id.org/wmto#isDefinedByWPA
+<https://w3id.org/wmto#isDefinedByWPA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#isDefinedByWPA> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rec#Office> .
+<https://w3id.org/wmto#isDefinedByWPA> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#WPAllocation> .
+<https://w3id.org/wmto#isDefinedByWPA> <http://www.w3.org/2000/01/rdf-schema#comment> "To link a Space/Office/Workplace to a WorkPlace Allocation instance" .
+<https://w3id.org/wmto#isDefinedByWPA> <http://www.w3.org/2000/01/rdf-schema#label> "isDefinedByWorkPlaceAllocation" .
+# 
+# https://w3id.org/wmto#isWPATo
+<https://w3id.org/wmto#isWPATo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#isWPATo> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/wmto#WPAllocation> .
+<https://w3id.org/wmto#isWPATo> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Person> .
+# 
+# https://w3id.org/wmto#orgUnitType
+<https://w3id.org/wmto#orgUnitType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#orgUnitType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/org#OrganizationalUnit> .
+<https://w3id.org/wmto#orgUnitType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#orgUnitType> <http://www.w3.org/2000/01/rdf-schema#comment> "To link an OrgUnit to its TypeEnum individual, depending on those defined by the use case." .
+<https://w3id.org/wmto#orgUnitType> <http://www.w3.org/2000/01/rdf-schema#label> "organizationalUnitType" .
+# 
+# https://w3id.org/wmto#roleType
+<https://w3id.org/wmto#roleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/wmto#roleType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/org#Role> .
+<https://w3id.org/wmto#roleType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#roleType> <http://www.w3.org/2000/01/rdf-schema#comment> "To link a Role to its TypeEnum individual, depending on those defined by the use case." .
+<https://w3id.org/wmto#roleType> <http://www.w3.org/2000/01/rdf-schema#label> "roleType" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/wmto#allocationDate
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/AllocateAction> .
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date of allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own allocation date" .
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#allocationDate> <http://www.w3.org/2000/01/rdf-schema#label> "allocationDate" .
+# 
+# https://w3id.org/wmto#deallocationDate
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/AllocateAction> .
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date of de-allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own de-allocation date" .
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#deallocationDate> <http://www.w3.org/2000/01/rdf-schema#label> "deallocationDate" .
+# 
+# https://w3id.org/wmto#idCF
+<https://w3id.org/wmto#idCF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#idCF> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Person> .
+<https://w3id.org/wmto#idCF> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/wmto#idCF> <http://www.w3.org/2000/01/rdf-schema#comment> "Personal  unique identifier (italian CF, Codice Fiscale)" .
+<https://w3id.org/wmto#idCF> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#idCF> <http://www.w3.org/2000/01/rdf-schema#label> "idCF" .
+# 
+# https://w3id.org/wmto#isWPATo
+<https://w3id.org/wmto#isWPATo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://w3id.org/wmto#nameBuilding
+<https://w3id.org/wmto#nameBuilding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#nameBuilding> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/bot#Building> .
+<https://w3id.org/wmto#nameBuilding> <http://www.w3.org/2000/01/rdf-schema#comment> "Full name of the building, referring to the codified Space unique identifier defined by the organization for that building." .
+<https://w3id.org/wmto#nameBuilding> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#nameBuilding> <http://www.w3.org/2000/01/rdf-schema#label> "nameBuilding" .
+# 
+# https://w3id.org/wmto#remoteWorkDaysN
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/org#Post> .
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of remote working days assigned to a Post an employee fills." .
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#remoteWorkDaysN> <http://www.w3.org/2000/01/rdf-schema#label> "remoteWorkDaysNumber" .
+# 
+# https://w3id.org/wmto#spaceID
+<https://w3id.org/wmto#spaceID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/wmto#spaceID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rec#Architecture> .
+<https://w3id.org/wmto#spaceID> <http://www.w3.org/2000/01/rdf-schema#comment> "Space unique identifier defined by the organization to identify buildings, floors, rooms." .
+<https://w3id.org/wmto#spaceID> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "https://example.org/UniToWorkplaceManagementOntology#" .
+<https://w3id.org/wmto#spaceID> <http://www.w3.org/2000/01/rdf-schema#label> "spaceID" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/org#OrganizationalUnit
+<http://www.w3.org/ns/org#OrganizationalUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/org#Post
+<http://www.w3.org/ns/org#Post> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/org#Role
+<http://www.w3.org/ns/org#Role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/org#Role> <http://www.w3.org/2002/07/owl#equivalentClass> <https://schema.org/OrganizationRole> .
+# 
+# http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rec#Agent> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/AllocateAction
+<https://schema.org/AllocateAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/OrganizationRole
+<https://schema.org/OrganizationRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/bot#Building
+<https://w3id.org/bot#Building> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/bot#Space
+<https://w3id.org/bot#Space> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/bot#Space> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rec#Room> .
+# 
+# https://w3id.org/rec#Agent
+<https://w3id.org/rec#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/rec#Architecture
+<https://w3id.org/rec#Architecture> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/rec#Asset
+<https://w3id.org/rec#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/rec#Office
+<https://w3id.org/rec#Office> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/rec#Room
+<https://w3id.org/rec#Room> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/wmto#AssetAllocation
+<https://w3id.org/wmto#AssetAllocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#AssetAllocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/AllocateAction> .
+<https://w3id.org/wmto#AssetAllocation> <http://www.w3.org/2000/01/rdf-schema#comment> "To allocate ICT Assets to employees or Furniture Assets to workplaces/offices/rooms." .
+# 
+# https://w3id.org/wmto#EmploymentTypeEnum
+<https://w3id.org/wmto#EmploymentTypeEnum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#EmploymentTypeEnum> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection of individuals defining the types of employment contract available in the use case organization" .
+<https://w3id.org/wmto#EmploymentTypeEnum> <http://www.w3.org/2000/01/rdf-schema#label> "Employment Type Enumeration" .
+# 
+# https://w3id.org/wmto#FurnitureAssetTypeEnum
+<https://w3id.org/wmto#FurnitureAssetTypeEnum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#FurnitureAssetTypeEnum> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection of Individuals describing Furniture assets available in the use case organization" .
+<https://w3id.org/wmto#FurnitureAssetTypeEnum> <http://www.w3.org/2000/01/rdf-schema#label> "Furniture Assets Type Enumeration" .
+# 
+# https://w3id.org/wmto#IctAssetTypeEnum
+<https://w3id.org/wmto#IctAssetTypeEnum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#IctAssetTypeEnum> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection of Individuals describing ICT assets available in the use case organization" .
+<https://w3id.org/wmto#IctAssetTypeEnum> <http://www.w3.org/2000/01/rdf-schema#label> "ICT Assets Type Enumeration" .
+# 
+# https://w3id.org/wmto#OrgUnitTypeEnum
+<https://w3id.org/wmto#OrgUnitTypeEnum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#OrgUnitTypeEnum> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection of individuals defining the types of OrganizationalUnits available in the use case organization" .
+<https://w3id.org/wmto#OrgUnitTypeEnum> <http://www.w3.org/2000/01/rdf-schema#label> "Organizational Unit Type Enumeration" .
+# 
+# https://w3id.org/wmto#RoleTypeEnum
+<https://w3id.org/wmto#RoleTypeEnum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#RoleTypeEnum> <http://www.w3.org/2000/01/rdf-schema#comment> "Collection of Individuals describing organizational roles available in the use case organization" .
+<https://w3id.org/wmto#RoleTypeEnum> <http://www.w3.org/2000/01/rdf-schema#label> "Role Type Enumeration" .
+# 
+# https://w3id.org/wmto#WPAllocation
+<https://w3id.org/wmto#WPAllocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/wmto#WPAllocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/AllocateAction> .
+<https://w3id.org/wmto#WPAllocation> <http://www.w3.org/2000/01/rdf-schema#comment> "To allocate users/employees to a workplace/office." .
+<https://w3id.org/wmto#WPAllocation> <http://www.w3.org/2000/01/rdf-schema#label> "WorkplaceAllocation" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/wmto#Area
+<https://w3id.org/wmto#Area> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Area> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#Area> <http://www.w3.org/2000/01/rdf-schema#comment> "Area" .
+# 
+# https://w3id.org/wmto#CE
+<https://w3id.org/wmto#CE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#CE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#CE> <http://www.w3.org/2000/01/rdf-schema#comment> "Collaboratore Esterno (External Collaborator)" .
+# 
+# https://w3id.org/wmto#Chair
+<https://w3id.org/wmto#Chair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Chair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Contract
+<https://w3id.org/wmto#Contract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Contract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#DC
+<https://w3id.org/wmto#DC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#DC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#DC> <http://www.w3.org/2000/01/rdf-schema#comment> "Dipendente di Cooperativa (Cooperative Employee)" .
+# 
+# https://w3id.org/wmto#Desk
+<https://w3id.org/wmto#Desk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Desk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Desktop
+<https://w3id.org/wmto#Desktop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Desktop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#DirOU
+<https://w3id.org/wmto#DirOU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#DirOU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#DirOU> <http://www.w3.org/2000/01/rdf-schema#comment> "Dirigente di Unità Organizzativa" .
+# 
+# https://w3id.org/wmto#Directorate
+<https://w3id.org/wmto#Directorate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Directorate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#Directorate> <http://www.w3.org/2000/01/rdf-schema#comment> "Direzione" .
+# 
+# https://w3id.org/wmto#DrawerUnit
+<https://w3id.org/wmto#DrawerUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#DrawerUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#ErgonomicChair
+<https://w3id.org/wmto#ErgonomicChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#ErgonomicChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#FullTime
+<https://w3id.org/wmto#FullTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#FullTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#Internship
+<https://w3id.org/wmto#Internship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Internship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#Laptop
+<https://w3id.org/wmto#Laptop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Laptop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#MeetingTable
+<https://w3id.org/wmto#MeetingTable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#MeetingTable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#NonProfitVolunteering
+<https://w3id.org/wmto#NonProfitVolunteering> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#NonProfitVolunteering> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#Office
+<https://w3id.org/wmto#Office> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Office> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#Office> <http://www.w3.org/2000/01/rdf-schema#comment> "Ufficio" .
+# 
+# https://w3id.org/wmto#OnCall
+<https://w3id.org/wmto#OnCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#OnCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#PTA
+<https://w3id.org/wmto#PTA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#PTA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#PTA> <http://www.w3.org/2000/01/rdf-schema#comment> "Personale Tecnico Amministrativo (PTA)" .
+# 
+# https://w3id.org/wmto#PartTime
+<https://w3id.org/wmto#PartTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#PartTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#Printer
+<https://w3id.org/wmto#Printer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Printer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#ProjectUnit
+<https://w3id.org/wmto#ProjectUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#ProjectUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#ProjectUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Unità di Progetto" .
+# 
+# https://w3id.org/wmto#RArea
+<https://w3id.org/wmto#RArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#RArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#RArea> <http://www.w3.org/2000/01/rdf-schema#comment> "Responsabile di Area" .
+# 
+# https://w3id.org/wmto#RSez
+<https://w3id.org/wmto#RSez> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#RSez> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#RSez> <http://www.w3.org/2000/01/rdf-schema#comment> "Responsabile di Sezione" .
+# 
+# https://w3id.org/wmto#RUProg
+<https://w3id.org/wmto#RUProg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#RUProg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#RUProg> <http://www.w3.org/2000/01/rdf-schema#comment> "Responsabile di Unità di Progetto" .
+# 
+# https://w3id.org/wmto#RUff
+<https://w3id.org/wmto#RUff> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#RUff> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+<https://w3id.org/wmto#RUff> <http://www.w3.org/2000/01/rdf-schema#comment> "Responsabile di Ufficio" .
+# 
+# https://w3id.org/wmto#Secretary
+<https://w3id.org/wmto#Secretary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Secretary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#RoleTypeEnum> .
+# 
+# https://w3id.org/wmto#Section
+<https://w3id.org/wmto#Section> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Section> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#Section> <http://www.w3.org/2000/01/rdf-schema#comment> "Sezione" .
+# 
+# https://w3id.org/wmto#ShelvingUnit
+<https://w3id.org/wmto#ShelvingUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#ShelvingUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Smartboard
+<https://w3id.org/wmto#Smartboard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Smartboard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Smartphone
+<https://w3id.org/wmto#Smartphone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Smartphone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#StaffUnit
+<https://w3id.org/wmto#StaffUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#StaffUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#OrgUnitTypeEnum> .
+<https://w3id.org/wmto#StaffUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Staff" .
+# 
+# https://w3id.org/wmto#StorageCabinet
+<https://w3id.org/wmto#StorageCabinet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#StorageCabinet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#FurnitureAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Tablet
+<https://w3id.org/wmto#Tablet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Tablet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# https://w3id.org/wmto#Temporary
+<https://w3id.org/wmto#Temporary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Temporary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#EmploymentTypeEnum> .
+# 
+# https://w3id.org/wmto#Workstation
+<https://w3id.org/wmto#Workstation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/wmto#Workstation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/wmto#IctAssetTypeEnum> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
