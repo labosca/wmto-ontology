@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Workplace Management of the University of Torino Ontology (WMTO)</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/wmto/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/wmto/","name":"Workplace Management of the University of Torino Ontology (WMTO)", "headline":"Document describing the ontology https://w3id.org/wmto/", "dateReleased":"2025-06-30", "version":"v1.0", "license":"https://creativecommons.org/licenses/by/4.0/", "author":[{"@type":"Person","name":"Marta Boscariol"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Workplace Management of the University of Torino Ontology (WMTO)</h1>
+<h2>Release: 2025-06-30</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://w3id.org/wmto/v1.0">https://w3id.org/wmto/v1.0</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="https://w3id.org/wmto/">https://w3id.org/wmto/</a></dd>
+<dt>Revision:</dt>
+<dd>v1.0</dd>
+<dt>Issued on:</dt>
+<dd>2025-10-23</dd>
+<dt>Authors:</dt>
+<dd>Marta Boscariol</dd>
+
+<dt>Imported Ontologies:</dt>
+<dd><a href="http://www.w3.org/ns/org#">org#</a></dd><dd><a href="https://w3id.org/rec/actuation/">&lt;https://w3id.org/rec/actuation/&gt;</a></dd><dd><a href="https://w3id.org/rec/addressing/">&lt;https://w3id.org/rec/addressing/&gt;</a></dd><dd><a href="https://w3id.org/rec/agents/">&lt;https://w3id.org/rec/agents/&gt;</a></dd><dd><a href="https://w3id.org/rec/analytics/">&lt;https://w3id.org/rec/analytics/&gt;</a></dd><dd><a href="https://w3id.org/rec/asset/">&lt;https://w3id.org/rec/asset/&gt;</a></dd><dd><a href="https://w3id.org/rec/building/">&lt;https://w3id.org/rec/building/&gt;</a></dd><dd><a href="https://w3id.org/rec/business/">&lt;https://w3id.org/rec/business/&gt;</a></dd><dd><a href="https://w3id.org/rec/core/">&lt;https://w3id.org/rec/core/&gt;</a></dd><dd><a href="https://w3id.org/rec/dataschemas/">&lt;https://w3id.org/rec/dataschemas/&gt;</a></dd><dd><a href="https://w3id.org/rec/device/">&lt;https://w3id.org/rec/device/&gt;</a></dd><dd><a href="https://w3id.org/rec/full/">&lt;https://w3id.org/rec/full/&gt;</a></dd><dd><a href="https://w3id.org/rec/metadata/">&lt;https://w3id.org/rec/metadata/&gt;</a></dd><dd><a href="https://w3id.org/rec/units/">&lt;https://w3id.org/rec/units/&gt;</a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Marta Boscariol. Workplace Management of the University of Torino Ontology (WMTO). Revision: v1.0. Retrieved from: https://w3id.org/wmto/v1.0</dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+The Workplace Management of the University of Torino Ontology (WMTO) is a modular OWL ontology designed to provide semantic interoperability for workplace management practices in enterprise environments. By integrating concepts from established ontologies including BOT, REC, Brick, ORG, FOAF, and Schema.org, WMTO offers a comprehensive framework for representing organizational structure, spatial topology, physical asset management, and employee allocation. The ontology addresses the semantic heterogeneity challenges that arise when integrating data from multiple workplace management domains (Human Resources, Facility Management, and Information and Communication Technology) into unified Digital Twin Environments. Following the diagram-first modelling paradigm and emphasizing modularity, WMTO balances the reuse of well-established ontological patterns with the introduction of enterprise-specific concepts tailored to workplace management needs. The ontology supports advanced use cases including historical asset allocation tracking, space optimization planning, remote work management, and cross-domain data integration, while maintaining extensibility through its modular architecture that localizes changes and facilitates future adaptations. </div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Modern workplace management involves the coordination of multiple organizational functions, each maintaining separate data systems with distinct vocabularies, structures, and semantics. Human Resources departments manage employee information and organizational hierarchies; Facility Management teams oversee spatial allocation and furniture assets; Information and Communication Technology units track equipment and digital resources. This fragmentation creates significant challenges for data integration, analytics, and decision-making processes that require cross-domain insights. The development of digital twin environments for workplace management necessitates a unified semantic layer capable of bridging these heterogeneous data sources. The Workplace Management of the University of Torino Ontology (WMTO) addresses this need by providing formally defined concepts and relationships that enable semantic interoperability while respecting the domain-specific requirements of each workplace management function. WMTO is designed to support the following core objectives: - Semantic Integration: Provide a common vocabulary for integrating workplace management data across HR, FM, and ICT domains - Historical Tracking: Enable temporal representation of asset allocations, spatial assignments, and organizational changes - Spatial Representation: Model building topology and workplace allocation with sufficient granularity for space optimization - Asset Management: Support lifecycle tracking of both ICT equipment and furniture assets from commissioning to turnover - Organizational Modeling: Represent complex organizational structures, employment relationships, and role distinctions - Extensibility: Facilitate future adaptations through modular design and case-study-specific enumeration patterns
+
+WMTO introduces several distinctive modeling patterns that enhance its utility for workplace management: - Allocation Pattern: Rather than embedding allocation attributes directly in asset or space classes, WMTO creates intermediate allocation nodes (e.g., wmto:AssetAllocation, wmto:WorkplaceAllocation) that carry temporal constraints. This pattern enables multiple allocation records over time without overwriting existing properties, supporting comprehensive historical analysis - Enumeration Strategy: Case-study-specific classifications (organizational unit types, employment types, role types, asset types) are managed through enumeration lists, allowing organizations to customize taxonomies while maintaining ontological structure - Remote Work Semantics: The ontology introduces properties for tracking remote work patterns (wmto:remoteWorkDaysN), positioning workplace management systems to support hybrid work policies and space optimization strategies - Modular Replacement: The clear delineation of modules enables organizations to replace or extend specific domain areas without affecting the entire ontology, supporting evolutionary development
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>bot</b></td><td>&lt;https://w3id.org/bot#&gt;</td></tr>
+<tr><td><b>brick</b></td><td>&lt;https://brickschema.org/schema/Brick#&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>foaf</b></td><td>&lt;http://xmlns.com/foaf/0.1/&gt;</td></tr>
+<tr><td><b>org</b></td><td>&lt;http://www.w3.org/ns/org#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>qudt</b></td><td>&lt;http://qudt.org/schema/qudt/&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>rec</b></td><td>&lt;https://w3id.org/rec#&gt;</td></tr>
+<tr><td><b>sdo</b></td><td>&lt;https://schema.org/&gt;</td></tr>
+<tr><td><b>sh</b></td><td>&lt;http://www.w3.org/ns/shacl#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>unit</b></td><td>&lt;http://qudt.org/vocab/unit/&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>wmto</b></td><td>&lt;https://w3id.org/wmto#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Workplace Management of the University of Torino Ontology (WMTO): Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent">
+         <span>Agent</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation">
+         <span>Asset Allocation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/org#Role" title="http://www.w3.org/ns/org#Role">
+         <span>Role</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/bot#Space" title="https://w3id.org/bot#Space">
+         <span>Space</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://w3id.org/wmto#assetType" title="https://w3id.org/wmto#assetType">assetType</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#definesAAOf" title="https://w3id.org/wmto#definesAAOf">definesAssetAllocationOf</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#definesWPAOf" title="https://w3id.org/wmto#definesWPAOf">definesWorkPlaceAllocationOf</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/employmentType" title="https://schema.org/employmentType">employmentType</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/employmentUnit" title="https://schema.org/employmentUnit">employmentUnit</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#hasAA" title="https://w3id.org/wmto#hasAA">hasAssetAllocation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#hasWPA" title="https://w3id.org/wmto#hasWPA">hasWorkPlaceAllocation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#isWPATo" title="https://w3id.org/wmto#isWPATo">
+         <span>is W P A To</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#isAATo" title="https://w3id.org/wmto#isAATo">isAssetAllocationTo</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#isDefinedByAA" title="https://w3id.org/wmto#isDefinedByAA">isDefinedByAssetAllocation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#isDefinedByWPA" title="https://w3id.org/wmto#isDefinedByWPA">isDefinedByWorkPlaceAllocation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#orgUnitType" title="https://w3id.org/wmto#orgUnitType">organizationalUnitType</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#roleType" title="https://w3id.org/wmto#roleType">roleType</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://w3id.org/wmto#allocationDate" title="https://w3id.org/wmto#allocationDate">allocationDate</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#deallocationDate" title="https://w3id.org/wmto#deallocationDate">deallocationDate</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#idCF" title="https://w3id.org/wmto#idCF">idCF</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#nameBuilding" title="https://w3id.org/wmto#nameBuilding">nameBuilding</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#remoteWorkDaysN" title="https://w3id.org/wmto#remoteWorkDaysN">remoteWorkDaysNumber</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#spaceID" title="https://w3id.org/wmto#spaceID">spaceID</a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#https://w3id.org/wmto#Area" title="https://w3id.org/wmto#Area">
+         <span>Area</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#CE" title="https://w3id.org/wmto#CE">
+         <span>C E</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Chair" title="https://w3id.org/wmto#Chair">
+         <span>Chair</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Contract" title="https://w3id.org/wmto#Contract">
+         <span>Contract</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#DC" title="https://w3id.org/wmto#DC">
+         <span>D C</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Desk" title="https://w3id.org/wmto#Desk">
+         <span>Desk</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Desktop" title="https://w3id.org/wmto#Desktop">
+         <span>Desktop</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#DirOU" title="https://w3id.org/wmto#DirOU">
+         <span>Dir O U</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Directorate" title="https://w3id.org/wmto#Directorate">
+         <span>Directorate</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#DrawerUnit" title="https://w3id.org/wmto#DrawerUnit">
+         <span>Drawer Unit</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#ErgonomicChair" title="https://w3id.org/wmto#ErgonomicChair">
+         <span>Ergonomic Chair</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#FullTime" title="https://w3id.org/wmto#FullTime">
+         <span>Full Time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Internship" title="https://w3id.org/wmto#Internship">
+         <span>Internship</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Laptop" title="https://w3id.org/wmto#Laptop">
+         <span>Laptop</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#MeetingTable" title="https://w3id.org/wmto#MeetingTable">
+         <span>Meeting Table</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#NonProfitVolunteering" title="https://w3id.org/wmto#NonProfitVolunteering">
+         <span>Non Profit Volunteering</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Office" title="https://w3id.org/wmto#Office">
+         <span>Office</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#OnCall" title="https://w3id.org/wmto#OnCall">
+         <span>On Call</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#PTA" title="https://w3id.org/wmto#PTA">
+         <span>P T A</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#PartTime" title="https://w3id.org/wmto#PartTime">
+         <span>Part Time</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Printer" title="https://w3id.org/wmto#Printer">
+         <span>Printer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#ProjectUnit" title="https://w3id.org/wmto#ProjectUnit">
+         <span>Project Unit</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#RArea" title="https://w3id.org/wmto#RArea">
+         <span>R Area</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#RSez" title="https://w3id.org/wmto#RSez">
+         <span>R Sez</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#RUProg" title="https://w3id.org/wmto#RUProg">
+         <span>R U Prog</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#RUff" title="https://w3id.org/wmto#RUff">
+         <span>R Uff</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Secretary" title="https://w3id.org/wmto#Secretary">
+         <span>Secretary</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Section" title="https://w3id.org/wmto#Section">
+         <span>Section</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#ShelvingUnit" title="https://w3id.org/wmto#ShelvingUnit">
+         <span>Shelving Unit</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Smartboard" title="https://w3id.org/wmto#Smartboard">
+         <span>Smartboard</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Smartphone" title="https://w3id.org/wmto#Smartphone">
+         <span>Smartphone</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#StaffUnit" title="https://w3id.org/wmto#StaffUnit">
+         <span>Staff Unit</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#StorageCabinet" title="https://w3id.org/wmto#StorageCabinet">
+         <span>Storage Cabinet</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Tablet" title="https://w3id.org/wmto#Tablet">
+         <span>Tablet</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Temporary" title="https://w3id.org/wmto#Temporary">
+         <span>Temporary</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/wmto#Workstation" title="https://w3id.org/wmto#Workstation">
+         <span>Workstation</span>
+      </a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Workplace Management of the University of Torino Ontology (WMTO): Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">The Workplace Management of the University of Torino Ontology (WMTO) is a multi-domain ontological framework that integrates organizational, spatial, and asset-related knowledge for workplace management. The ontology selectively imports classes, properties, and axioms from six established vocabularies rather than incorporating them entirely: BOT for building topology and spatial hierarchies, REC for real estate and furniture assets, Brick for ICT equipment, ORG for organizational structure, FOAF for employee personal details, and Schema.org for events and cross-domain properties. WMTO is structured around three operational domains—Human Resources (HR) for employee information and organizational membership, Facilities Management (FM) for spatial topology and furniture inventory, and ICT management for equipment tracking and user allocation. This modular approach enables unified semantic representation across traditionally siloed organizational functions, facilitating integrated queries spanning multiple organizational domains.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Workplace Management of the University of Torino Ontology (WMTO) classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Workplace Management of the University of Torino Ontology (WMTO).
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent"> <span>Agent</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation"> <span>Asset Allocation</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a></li>
+  <li><a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a></li>
+  <li><a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a></li>
+  <li><a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a></li>
+  <li><a href="#http://www.w3.org/ns/org#Role" title="http://www.w3.org/ns/org#Role"> <span>Role</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a></li>
+  <li><a href="#https://w3id.org/bot#Space" title="https://w3id.org/bot#Space"> <span>Space</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a></li>
+ </ul>
+ <div class="entity" id="http://xmlns.com/foaf/0.1/Agent">
+  <h3>Agent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Agent</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://w3id.org/rec#Agent" target="_blank" title="https://w3id.org/rec#Agent">Agent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#hasAA" title="https://w3id.org/wmto#hasAA">hasAssetAllocation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#isAATo" title="https://w3id.org/wmto#isAATo">isAssetAllocationTo</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#AssetAllocation">
+  <h3>Asset Allocation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#AssetAllocation</p>
+  <div class="comment">
+   <span class="markdown">To allocate ICT Assets to employees or Furniture Assets to workplaces/offices/rooms.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/AllocateAction" target="_blank" title="https://schema.org/AllocateAction">Allocate Action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#definesAAOf" title="https://w3id.org/wmto#definesAAOf">definesAssetAllocationOf</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/wmto#isAATo" title="https://w3id.org/wmto#isAATo">isAssetAllocationTo</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#hasAA" title="https://w3id.org/wmto#hasAA">hasAssetAllocation</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/wmto#isDefinedByAA" title="https://w3id.org/wmto#isDefinedByAA">isDefinedByAssetAllocation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#EmploymentTypeEnum">
+  <h3>Employment Type Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#EmploymentTypeEnum</p>
+  <div class="comment">
+   <span class="markdown">Collection of individuals defining the types of employment contract available in the use case organization</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://schema.org/employmentType" title="https://schema.org/employmentType">employmentType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#Contract" title="https://w3id.org/wmto#Contract">Contract</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#FullTime" title="https://w3id.org/wmto#FullTime">Full Time</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Internship" title="https://w3id.org/wmto#Internship">Internship</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#NonProfitVolunteering" title="https://w3id.org/wmto#NonProfitVolunteering">Non Profit Volunteering</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#OnCall" title="https://w3id.org/wmto#OnCall">On Call</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#PartTime" title="https://w3id.org/wmto#PartTime">Part Time</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Temporary" title="https://w3id.org/wmto#Temporary">Temporary</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#FurnitureAssetTypeEnum">
+  <h3>Furniture Assets Type Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#FurnitureAssetTypeEnum</p>
+  <div class="comment">
+   <span class="markdown">Collection of Individuals describing Furniture assets available in the use case organization</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#Chair" title="https://w3id.org/wmto#Chair">Chair</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Desk" title="https://w3id.org/wmto#Desk">Desk</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#DrawerUnit" title="https://w3id.org/wmto#DrawerUnit">Drawer Unit</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#ErgonomicChair" title="https://w3id.org/wmto#ErgonomicChair">Ergonomic Chair</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#MeetingTable" title="https://w3id.org/wmto#MeetingTable">Meeting Table</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#ShelvingUnit" title="https://w3id.org/wmto#ShelvingUnit">Shelving Unit</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#StorageCabinet" title="https://w3id.org/wmto#StorageCabinet">Storage Cabinet</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#IctAssetTypeEnum">
+  <h3>ICT Assets Type Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#IctAssetTypeEnum</p>
+  <div class="comment">
+   <span class="markdown">Collection of Individuals describing ICT assets available in the use case organization</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#Desktop" title="https://w3id.org/wmto#Desktop">Desktop</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Laptop" title="https://w3id.org/wmto#Laptop">Laptop</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Printer" title="https://w3id.org/wmto#Printer">Printer</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Smartboard" title="https://w3id.org/wmto#Smartboard">Smartboard</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Smartphone" title="https://w3id.org/wmto#Smartphone">Smartphone</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Tablet" title="https://w3id.org/wmto#Tablet">Tablet</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Workstation" title="https://w3id.org/wmto#Workstation">Workstation</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#OrgUnitTypeEnum">
+  <h3>Organizational Unit Type Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#OrgUnitTypeEnum</p>
+  <div class="comment">
+   <span class="markdown">Collection of individuals defining the types of OrganizationalUnits available in the use case organization</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#orgUnitType" title="https://w3id.org/wmto#orgUnitType">organizationalUnitType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#Area" title="https://w3id.org/wmto#Area">Area</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Directorate" title="https://w3id.org/wmto#Directorate">Directorate</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Office" title="https://w3id.org/wmto#Office">Office</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#ProjectUnit" title="https://w3id.org/wmto#ProjectUnit">Project Unit</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Section" title="https://w3id.org/wmto#Section">Section</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#StaffUnit" title="https://w3id.org/wmto#StaffUnit">Staff Unit</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/org#Role">
+  <h3>Role<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/org#Role</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://schema.org/OrganizationRole" target="_blank" title="https://schema.org/OrganizationRole">Organization Role</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#roleType" title="https://w3id.org/wmto#roleType">roleType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#RoleTypeEnum">
+  <h3>Role Type Enumeration<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#RoleTypeEnum</p>
+  <div class="comment">
+   <span class="markdown">Collection of Individuals describing organizational roles available in the use case organization</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#roleType" title="https://w3id.org/wmto#roleType">roleType</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#CE" title="https://w3id.org/wmto#CE">C E</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#DC" title="https://w3id.org/wmto#DC">D C</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#DirOU" title="https://w3id.org/wmto#DirOU">Dir O U</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#PTA" title="https://w3id.org/wmto#PTA">P T A</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#RArea" title="https://w3id.org/wmto#RArea">R Area</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#RSez" title="https://w3id.org/wmto#RSez">R Sez</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#RUProg" title="https://w3id.org/wmto#RUProg">R U Prog</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#RUff" title="https://w3id.org/wmto#RUff">R Uff</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/wmto#Secretary" title="https://w3id.org/wmto#Secretary">Secretary</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/bot#Space">
+  <h3>Space<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/bot#Space</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="https://w3id.org/rec#Room" target="_blank" title="https://w3id.org/rec#Room">Room</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#WPAllocation">
+  <h3>WorkplaceAllocation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#WPAllocation</p>
+  <div class="comment">
+   <span class="markdown">To allocate users/employees to a workplace/office.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://schema.org/AllocateAction" target="_blank" title="https://schema.org/AllocateAction">Allocate Action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#definesWPAOf" title="https://w3id.org/wmto#definesWPAOf">definesWorkPlaceAllocationOf</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/wmto#isWPATo" title="https://w3id.org/wmto#isWPATo">is W P A To</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#hasWPA" title="https://w3id.org/wmto#hasWPA">hasWorkPlaceAllocation</a> <sup class="type-op" title="object property">op</sup>, <a href="#https://w3id.org/wmto#isDefinedByWPA" title="https://w3id.org/wmto#isDefinedByWPA">isDefinedByWorkPlaceAllocation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/wmto#assetType" title="https://w3id.org/wmto#assetType">assetType</a></li>
+  <li><a href="#https://w3id.org/wmto#definesAAOf" title="https://w3id.org/wmto#definesAAOf">definesAssetAllocationOf</a></li>
+  <li><a href="#https://w3id.org/wmto#definesWPAOf" title="https://w3id.org/wmto#definesWPAOf">definesWorkPlaceAllocationOf</a></li>
+  <li><a href="#https://schema.org/employmentType" title="https://schema.org/employmentType">employmentType</a></li>
+  <li><a href="#https://schema.org/employmentUnit" title="https://schema.org/employmentUnit">employmentUnit</a></li>
+  <li><a href="#https://w3id.org/wmto#hasAA" title="https://w3id.org/wmto#hasAA">hasAssetAllocation</a></li>
+  <li><a href="#https://w3id.org/wmto#hasWPA" title="https://w3id.org/wmto#hasWPA">hasWorkPlaceAllocation</a></li>
+  <li><a href="#https://w3id.org/wmto#isWPATo" title="https://w3id.org/wmto#isWPATo"> <span>is W P A To</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#isAATo" title="https://w3id.org/wmto#isAATo">isAssetAllocationTo</a></li>
+  <li><a href="#https://w3id.org/wmto#isDefinedByAA" title="https://w3id.org/wmto#isDefinedByAA">isDefinedByAssetAllocation</a></li>
+  <li><a href="#https://w3id.org/wmto#isDefinedByWPA" title="https://w3id.org/wmto#isDefinedByWPA">isDefinedByWorkPlaceAllocation</a></li>
+  <li><a href="#https://w3id.org/wmto#orgUnitType" title="https://w3id.org/wmto#orgUnitType">organizationalUnitType</a></li>
+  <li><a href="#https://w3id.org/wmto#roleType" title="https://w3id.org/wmto#roleType">roleType</a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/wmto#assetType">
+  <h3>assetType<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#assetType</p>
+  <div class="comment">
+   <span class="markdown">To link an Asset (e.g. ICT Asset, Furniture) to its TypeEnum individual, depending on those defined by the use case.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Asset" target="_blank" title="https://w3id.org/rec#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#definesAAOf">
+  <h3>definesAssetAllocationOf<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#definesAAOf</p>
+  <div class="comment">
+   <span class="markdown">To link an Asset Allocation instance to a piece of Furniture/ICTEquipment</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation">Asset Allocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Asset" target="_blank" title="https://w3id.org/rec#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#isDefinedByAA" title="https://w3id.org/wmto#isDefinedByAA">isDefinedByAssetAllocation</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#definesWPAOf">
+  <h3>definesWorkPlaceAllocationOf<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#definesWPAOf</p>
+  <div class="comment">
+   <span class="markdown">To link a WorkPlace Allocation instance to a Space/Office/Workplace</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Office" target="_blank" title="https://w3id.org/rec#Office">Office</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#isDefinedByWPA" title="https://w3id.org/wmto#isDefinedByWPA">isDefinedByWorkPlaceAllocation</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://schema.org/employmentType">
+  <h3>employmentType<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/employmentType</p>
+  <div class="comment">
+   <span class="markdown">Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://schema.org/employmentType">https://schema.org/employmentType</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/org#Post" target="_blank" title="http://www.w3.org/ns/org#Post">Post</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://schema.org/employmentUnit">
+  <h3>employmentUnit<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/employmentUnit</p>
+  <div class="comment">
+   <span class="markdown">Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://pending.schema.org/employmentUnit">https://pending.schema.org/employmentUnit</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/org#OrganizationalUnit" target="_blank" title="http://www.w3.org/ns/org#OrganizationalUnit">Organizational Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#hasAA">
+  <h3>hasAssetAllocation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#hasAA</p>
+  <div class="comment">
+   <span class="markdown">To link an Agent (Person, OrgUnit, Org) or a Room (e.g., Office) to an Asset Allocation instance</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent">Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="https://w3id.org/rec#Room" target="_blank" title="https://w3id.org/rec#Room">Room</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation">Asset Allocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#isAATo" title="https://w3id.org/wmto#isAATo">isAssetAllocationTo</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#hasWPA">
+  <h3>hasWorkPlaceAllocation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#hasWPA</p>
+  <div class="comment">
+   <span class="markdown">To link a Person/employee to a WorkPlaceAllocation instance</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://xmlns.com/foaf/0.1/Person" target="_blank" title="http://xmlns.com/foaf/0.1/Person">Person</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#isWPATo" title="https://w3id.org/wmto#isWPATo">is W P A To</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#isWPATo">
+  <h3>is W P A To<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#isWPATo</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://xmlns.com/foaf/0.1/Person" target="_blank" title="http://xmlns.com/foaf/0.1/Person">Person</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#hasWPA" title="https://w3id.org/wmto#hasWPA">hasWorkPlaceAllocation</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     data property
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#isAATo">
+  <h3>isAssetAllocationTo<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#isAATo</p>
+  <div class="comment">
+   <span class="markdown">To link an AssetAllocation instance to an Agent (Person or Organization/OrgUnit) or a Room (e.g., Office)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation">Asset Allocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent">Agent</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="https://w3id.org/rec#Room" target="_blank" title="https://w3id.org/rec#Room">Room</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#hasAA" title="https://w3id.org/wmto#hasAA">hasAssetAllocation</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#isDefinedByAA">
+  <h3>isDefinedByAssetAllocation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#isDefinedByAA</p>
+  <div class="comment">
+   <span class="markdown">To link an Asset (e.g. a piece of Furniture/ICTEquipment) to an Asset Allocation instance</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Asset" target="_blank" title="https://w3id.org/rec#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#AssetAllocation" title="https://w3id.org/wmto#AssetAllocation">Asset Allocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#definesAAOf" title="https://w3id.org/wmto#definesAAOf">definesAssetAllocationOf</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#isDefinedByWPA">
+  <h3>isDefinedByWorkPlaceAllocation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#isDefinedByWPA</p>
+  <div class="comment">
+   <span class="markdown">To link a Space/Office/Workplace to a WorkPlace Allocation instance</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Office" target="_blank" title="https://w3id.org/rec#Office">Office</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#WPAllocation" title="https://w3id.org/wmto#WPAllocation">WorkplaceAllocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#definesWPAOf" title="https://w3id.org/wmto#definesWPAOf">definesWorkPlaceAllocationOf</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#orgUnitType">
+  <h3>organizationalUnitType<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#orgUnitType</p>
+  <div class="comment">
+   <span class="markdown">To link an OrgUnit to its TypeEnum individual, depending on those defined by the use case.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/org#OrganizationalUnit" target="_blank" title="http://www.w3.org/ns/org#OrganizationalUnit">Organizational Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#roleType">
+  <h3>roleType<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#roleType</p>
+  <div class="comment">
+   <span class="markdown">To link a Role to its TypeEnum individual, depending on those defined by the use case.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/org#Role" title="http://www.w3.org/ns/org#Role">Role</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/wmto#allocationDate" title="https://w3id.org/wmto#allocationDate">allocationDate</a></li>
+  <li><a href="#https://w3id.org/wmto#deallocationDate" title="https://w3id.org/wmto#deallocationDate">deallocationDate</a></li>
+  <li><a href="#https://w3id.org/wmto#idCF" title="https://w3id.org/wmto#idCF">idCF</a></li>
+  <li><a href="#https://w3id.org/wmto#nameBuilding" title="https://w3id.org/wmto#nameBuilding">nameBuilding</a></li>
+  <li><a href="#https://w3id.org/wmto#remoteWorkDaysN" title="https://w3id.org/wmto#remoteWorkDaysN">remoteWorkDaysNumber</a></li>
+  <li><a href="#https://w3id.org/wmto#spaceID" title="https://w3id.org/wmto#spaceID">spaceID</a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/wmto#allocationDate">
+  <h3>allocationDate<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#allocationDate</p>
+  <div class="comment">
+   <span class="markdown">Date of allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own allocation date</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/AllocateAction" target="_blank" title="https://schema.org/AllocateAction">Allocate Action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#deallocationDate">
+  <h3>deallocationDate<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#deallocationDate</p>
+  <div class="comment">
+   <span class="markdown">Date of de-allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own de-allocation date</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://schema.org/AllocateAction" target="_blank" title="https://schema.org/AllocateAction">Allocate Action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#idCF">
+  <h3>idCF<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#idCF</p>
+  <div class="comment">
+   <span class="markdown">Personal unique identifier (italian CF, Codice Fiscale)</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://xmlns.com/foaf/0.1/Person" target="_blank" title="http://xmlns.com/foaf/0.1/Person">Person</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#nameBuilding">
+  <h3>nameBuilding<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#nameBuilding</p>
+  <div class="comment">
+   <span class="markdown">Full name of the building, referring to the codified Space unique identifier defined by the organization for that building.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/bot#Building" target="_blank" title="https://w3id.org/bot#Building">Building</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#remoteWorkDaysN">
+  <h3>remoteWorkDaysNumber<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#remoteWorkDaysN</p>
+  <div class="comment">
+   <span class="markdown">Number of remote working days assigned to a Post an employee fills.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/org#Post" target="_blank" title="http://www.w3.org/ns/org#Post">Post</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank" title="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">non Negative Integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#spaceID">
+  <h3>spaceID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#spaceID</p>
+  <div class="comment">
+   <span class="markdown">Space unique identifier defined by the organization to identify buildings, floors, rooms.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    https://example.org/UniToWorkplaceManagementOntology#
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/rec#Architecture" target="_blank" title="https://w3id.org/rec#Architecture">Architecture</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#https://w3id.org/wmto#Area" title="https://w3id.org/wmto#Area"> <span>Area</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#CE" title="https://w3id.org/wmto#CE"> <span>C E</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Chair" title="https://w3id.org/wmto#Chair"> <span>Chair</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Contract" title="https://w3id.org/wmto#Contract"> <span>Contract</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#DC" title="https://w3id.org/wmto#DC"> <span>D C</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Desk" title="https://w3id.org/wmto#Desk"> <span>Desk</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Desktop" title="https://w3id.org/wmto#Desktop"> <span>Desktop</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#DirOU" title="https://w3id.org/wmto#DirOU"> <span>Dir O U</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Directorate" title="https://w3id.org/wmto#Directorate"> <span>Directorate</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#DrawerUnit" title="https://w3id.org/wmto#DrawerUnit"> <span>Drawer Unit</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#ErgonomicChair" title="https://w3id.org/wmto#ErgonomicChair"> <span>Ergonomic Chair</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#FullTime" title="https://w3id.org/wmto#FullTime"> <span>Full Time</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Internship" title="https://w3id.org/wmto#Internship"> <span>Internship</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Laptop" title="https://w3id.org/wmto#Laptop"> <span>Laptop</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#MeetingTable" title="https://w3id.org/wmto#MeetingTable"> <span>Meeting Table</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#NonProfitVolunteering" title="https://w3id.org/wmto#NonProfitVolunteering"> <span>Non Profit Volunteering</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Office" title="https://w3id.org/wmto#Office"> <span>Office</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#OnCall" title="https://w3id.org/wmto#OnCall"> <span>On Call</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#PTA" title="https://w3id.org/wmto#PTA"> <span>P T A</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#PartTime" title="https://w3id.org/wmto#PartTime"> <span>Part Time</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Printer" title="https://w3id.org/wmto#Printer"> <span>Printer</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#ProjectUnit" title="https://w3id.org/wmto#ProjectUnit"> <span>Project Unit</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#RArea" title="https://w3id.org/wmto#RArea"> <span>R Area</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#RSez" title="https://w3id.org/wmto#RSez"> <span>R Sez</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#RUProg" title="https://w3id.org/wmto#RUProg"> <span>R U Prog</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#RUff" title="https://w3id.org/wmto#RUff"> <span>R Uff</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Secretary" title="https://w3id.org/wmto#Secretary"> <span>Secretary</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Section" title="https://w3id.org/wmto#Section"> <span>Section</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#ShelvingUnit" title="https://w3id.org/wmto#ShelvingUnit"> <span>Shelving Unit</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Smartboard" title="https://w3id.org/wmto#Smartboard"> <span>Smartboard</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Smartphone" title="https://w3id.org/wmto#Smartphone"> <span>Smartphone</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#StaffUnit" title="https://w3id.org/wmto#StaffUnit"> <span>Staff Unit</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#StorageCabinet" title="https://w3id.org/wmto#StorageCabinet"> <span>Storage Cabinet</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Tablet" title="https://w3id.org/wmto#Tablet"> <span>Tablet</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Temporary" title="https://w3id.org/wmto#Temporary"> <span>Temporary</span> </a></li>
+  <li><a href="#https://w3id.org/wmto#Workstation" title="https://w3id.org/wmto#Workstation"> <span>Workstation</span> </a></li>
+ </ul>
+ <div class="entity" id="https://w3id.org/wmto#Area">
+  <h3>Area<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Area</p>
+  <div class="comment">
+   <span class="markdown">Area</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#CE">
+  <h3>C E<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#CE</p>
+  <div class="comment">
+   <span class="markdown">Collaboratore Esterno (External Collaborator)</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Chair">
+  <h3>Chair<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Chair</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Contract">
+  <h3>Contract<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Contract</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#DC">
+  <h3>D C<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#DC</p>
+  <div class="comment">
+   <span class="markdown">Dipendente di Cooperativa (Cooperative Employee)</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Desk">
+  <h3>Desk<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Desk</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Desktop">
+  <h3>Desktop<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Desktop</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#DirOU">
+  <h3>Dir O U<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#DirOU</p>
+  <div class="comment">
+   <span class="markdown">Dirigente di Unità Organizzativa</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Directorate">
+  <h3>Directorate<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Directorate</p>
+  <div class="comment">
+   <span class="markdown">Direzione</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#DrawerUnit">
+  <h3>Drawer Unit<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#DrawerUnit</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#ErgonomicChair">
+  <h3>Ergonomic Chair<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#ErgonomicChair</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#FullTime">
+  <h3>Full Time<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#FullTime</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Internship">
+  <h3>Internship<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Internship</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Laptop">
+  <h3>Laptop<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Laptop</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#MeetingTable">
+  <h3>Meeting Table<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#MeetingTable</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#NonProfitVolunteering">
+  <h3>Non Profit Volunteering<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#NonProfitVolunteering</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Office">
+  <h3>Office<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Office</p>
+  <div class="comment">
+   <span class="markdown">Ufficio</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#OnCall">
+  <h3>On Call<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#OnCall</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#PTA">
+  <h3>P T A<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#PTA</p>
+  <div class="comment">
+   <span class="markdown">Personale Tecnico Amministrativo (PTA)</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#PartTime">
+  <h3>Part Time<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#PartTime</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Printer">
+  <h3>Printer<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Printer</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#ProjectUnit">
+  <h3>Project Unit<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#ProjectUnit</p>
+  <div class="comment">
+   <span class="markdown">Unità di Progetto</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#RArea">
+  <h3>R Area<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#RArea</p>
+  <div class="comment">
+   <span class="markdown">Responsabile di Area</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#RSez">
+  <h3>R Sez<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#RSez</p>
+  <div class="comment">
+   <span class="markdown">Responsabile di Sezione</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#RUProg">
+  <h3>R U Prog<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#RUProg</p>
+  <div class="comment">
+   <span class="markdown">Responsabile di Unità di Progetto</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#RUff">
+  <h3>R Uff<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#RUff</p>
+  <div class="comment">
+   <span class="markdown">Responsabile di Ufficio</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Secretary">
+  <h3>Secretary<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Secretary</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#RoleTypeEnum" title="https://w3id.org/wmto#RoleTypeEnum">Role Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Section">
+  <h3>Section<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Section</p>
+  <div class="comment">
+   <span class="markdown">Sezione</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#ShelvingUnit">
+  <h3>Shelving Unit<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#ShelvingUnit</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Smartboard">
+  <h3>Smartboard<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Smartboard</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Smartphone">
+  <h3>Smartphone<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Smartphone</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#StaffUnit">
+  <h3>Staff Unit<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#StaffUnit</p>
+  <div class="comment">
+   <span class="markdown">Staff</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#OrgUnitTypeEnum" title="https://w3id.org/wmto#OrgUnitTypeEnum">Organizational Unit Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#StorageCabinet">
+  <h3>Storage Cabinet<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#StorageCabinet</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#FurnitureAssetTypeEnum" title="https://w3id.org/wmto#FurnitureAssetTypeEnum">Furniture Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Tablet">
+  <h3>Tablet<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Tablet</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Temporary">
+  <h3>Temporary<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Temporary</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#EmploymentTypeEnum" title="https://w3id.org/wmto#EmploymentTypeEnum">Employment Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/wmto#Workstation">
+  <h3>Workstation<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/wmto#Workstation</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/wmto#IctAssetTypeEnum" title="https://w3id.org/wmto#IctAssetTypeEnum">ICT Assets Type Enumeration</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

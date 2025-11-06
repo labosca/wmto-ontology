@@ -1,0 +1,566 @@
+@prefix : <https://w3id.org/wmto#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/wmto#> .
+
+<https://w3id.org/wmto#> rdf:type owl:Ontology ;
+                          owl:versionIRI <https://w3id.org/wmto/v1.0> ;
+                          owl:imports <http://www.w3.org/ns/org#> ,
+                                      <http://xmlns.com/foaf/0.1/> ,
+                                      <https://brickschema.org/schema/Brick#> ,
+                                      <https://schema.org/> ,
+                                      <https://w3id.org/bot-0.3.2> ,
+                                      <https://w3id.org/rec/full/3.3/> ;
+                          <http://purl.org/dc/elements/1.1/creator> "Marta Boscariol" ;
+                          <http://purl.org/dc/elements/1.1/description> "The Workplace Management of the University of Torino Ontology (WMTO) is a multi-domain ontological framework that integrates organizational, spatial, and asset-related knowledge for workplace management. The ontology selectively imports classes, properties, and axioms from six established vocabularies rather than incorporating them entirely: BOT for building topology and spatial hierarchies, REC for real estate and furniture assets, Brick for ICT equipment, ORG for organizational structure, FOAF for employee personal details, and Schema.org for events and cross-domain properties. WMTO is structured around three operational domains—Human Resources (HR) for employee information and organizational membership, Facilities Management (FM) for spatial topology and furniture inventory, and ICT management for equipment tracking and user allocation. This modular approach enables unified semantic representation across traditionally siloed organizational functions, facilitating integrated queries spanning multiple organizational domains." ;
+                          <http://purl.org/dc/elements/1.1/title> "Workplace Management of the University of Torino Ontology (WMTO)" ;
+                          <http://purl.org/dc/terms/created> "2025-06-30"^^xsd:date ;
+                          <http://purl.org/dc/terms/issued> "2025-10-23"^^xsd:date ;
+                          <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "wmto" ;
+                          <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/wmto/> ;
+                          owl:versionInfo "v1.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type rdfs:Datatype ;
+                                   owl:equivalentClass <https://w3id.org/rec#Person> .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/rec#Person
+<https://w3id.org/rec#Person> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://schema.org/employmentType
+<https://schema.org/employmentType> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://www.w3.org/ns/org#Post> ;
+                                    rdfs:range :EmploymentTypeEnum ;
+                                    rdfs:comment "Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship)."@en ;
+                                    rdfs:isDefinedBy <https://schema.org/employmentType> ;
+                                    rdfs:label "employmentType"@en .
+
+
+###  https://schema.org/employmentUnit
+<https://schema.org/employmentUnit> rdf:type owl:ObjectProperty ;
+                                    rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
+                                    rdfs:comment "Indicates the department, unit and/or facility where the employee reports and/or in which the job is to be performed."@en ;
+                                    rdfs:isDefinedBy <https://pending.schema.org/employmentUnit> ;
+                                    rdfs:label "employmentUnit"@en .
+
+
+###  https://w3id.org/wmto#assetType
+:assetType rdf:type owl:ObjectProperty ;
+           rdfs:domain <https://w3id.org/rec#Asset> ;
+           rdfs:comment "To link an Asset (e.g. ICT Asset, Furniture) to its TypeEnum individual, depending on those defined by the use case." ;
+           rdfs:label "assetType" .
+
+
+###  https://w3id.org/wmto#definesAAOf
+:definesAAOf rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDefinedByAA ;
+             rdfs:domain :AssetAllocation ;
+             rdfs:range <https://w3id.org/rec#Asset> ;
+             rdfs:comment "To link an Asset Allocation instance to a piece of Furniture/ICTEquipment" ;
+             rdfs:label "definesAssetAllocationOf" .
+
+
+###  https://w3id.org/wmto#definesWPAOf
+:definesWPAOf rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isDefinedByWPA ;
+              rdfs:domain :WPAllocation ;
+              rdfs:range <https://w3id.org/rec#Office> ;
+              rdfs:comment "To link a WorkPlace Allocation instance to a Space/Office/Workplace" ;
+              rdfs:label "definesWorkPlaceAllocationOf" .
+
+
+###  https://w3id.org/wmto#hasAA
+:hasAA rdf:type owl:ObjectProperty ;
+       owl:inverseOf :isAATo ;
+       rdfs:domain [ rdf:type owl:Class ;
+                     owl:unionOf ( <http://xmlns.com/foaf/0.1/Agent>
+                                   <https://w3id.org/rec#Room>
+                                 )
+                   ] ;
+       rdfs:range :AssetAllocation ;
+       rdfs:comment "To link an Agent (Person, OrgUnit, Org) or a Room (e.g., Office) to an Asset Allocation instance" ;
+       rdfs:label "hasAssetAllocation" .
+
+
+###  https://w3id.org/wmto#hasWPA
+:hasWPA rdf:type owl:ObjectProperty ;
+        owl:inverseOf :isWPATo ;
+        rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+        rdfs:range :WPAllocation ;
+        rdfs:comment "To link a Person/employee to a WorkPlaceAllocation instance" ;
+        rdfs:label "hasWorkPlaceAllocation" .
+
+
+###  https://w3id.org/wmto#isAATo
+:isAATo rdf:type owl:ObjectProperty ;
+        rdfs:domain :AssetAllocation ;
+        rdfs:range [ rdf:type owl:Class ;
+                     owl:unionOf ( <http://xmlns.com/foaf/0.1/Agent>
+                                   <https://w3id.org/rec#Room>
+                                 )
+                   ] ;
+        rdfs:comment "To link an AssetAllocation instance to an Agent (Person or Organization/OrgUnit) or a Room (e.g., Office)" ;
+        rdfs:label "isAssetAllocationTo" .
+
+
+###  https://w3id.org/wmto#isDefinedByAA
+:isDefinedByAA rdf:type owl:ObjectProperty ;
+               rdfs:domain <https://w3id.org/rec#Asset> ;
+               rdfs:range :AssetAllocation ;
+               rdfs:comment "To link an Asset (e.g. a piece of Furniture/ICTEquipment) to an Asset Allocation instance" ;
+               rdfs:label "isDefinedByAssetAllocation" .
+
+
+###  https://w3id.org/wmto#isDefinedByWPA
+:isDefinedByWPA rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/rec#Office> ;
+                rdfs:range :WPAllocation ;
+                rdfs:comment "To link a Space/Office/Workplace to a WorkPlace Allocation instance" ;
+                rdfs:label "isDefinedByWorkPlaceAllocation" .
+
+
+###  https://w3id.org/wmto#isWPATo
+:isWPATo rdf:type owl:ObjectProperty ;
+         rdfs:domain :WPAllocation ;
+         rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+
+
+###  https://w3id.org/wmto#orgUnitType
+:orgUnitType rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.w3.org/ns/org#OrganizationalUnit> ;
+             rdfs:range :OrgUnitTypeEnum ;
+             rdfs:comment "To link an OrgUnit to its TypeEnum individual, depending on those defined by the use case." ;
+             rdfs:label "organizationalUnitType" .
+
+
+###  https://w3id.org/wmto#roleType
+:roleType rdf:type owl:ObjectProperty ;
+          rdfs:domain <http://www.w3.org/ns/org#Role> ;
+          rdfs:range :RoleTypeEnum ;
+          rdfs:comment "To link a Role to its TypeEnum individual, depending on those defined by the use case." ;
+          rdfs:label "roleType" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/wmto#allocationDate
+:allocationDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain <https://schema.org/AllocateAction> ;
+                rdfs:range xsd:dateTime ;
+                rdfs:comment "Date of allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own allocation date" ;
+                rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+                rdfs:label "allocationDate" .
+
+
+###  https://w3id.org/wmto#deallocationDate
+:deallocationDate rdf:type owl:DatatypeProperty ;
+                  rdfs:domain <https://schema.org/AllocateAction> ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:comment "Date of de-allocation, assigned to the allocation node (e.g. AssetAllocation, WorkplaceAllocation). An object can have multiple allocation nodes, each with its own de-allocation date" ;
+                  rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+                  rdfs:label "deallocationDate" .
+
+
+###  https://w3id.org/wmto#idCF
+:idCF rdf:type owl:DatatypeProperty ;
+      rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Personal  unique identifier (italian CF, Codice Fiscale)" ;
+      rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+      rdfs:label "idCF" .
+
+
+###  https://w3id.org/wmto#isWPATo
+:isWPATo rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/wmto#nameBuilding
+:nameBuilding rdf:type owl:DatatypeProperty ;
+              rdfs:domain <https://w3id.org/bot#Building> ;
+              rdfs:comment "Full name of the building, referring to the codified Space unique identifier defined by the organization for that building." ;
+              rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+              rdfs:label "nameBuilding" .
+
+
+###  https://w3id.org/wmto#remoteWorkDaysN
+:remoteWorkDaysN rdf:type owl:DatatypeProperty ;
+                 rdfs:domain <http://www.w3.org/ns/org#Post> ;
+                 rdfs:range xsd:nonNegativeInteger ;
+                 rdfs:comment "Number of remote working days assigned to a Post an employee fills." ;
+                 rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+                 rdfs:label "remoteWorkDaysNumber" .
+
+
+###  https://w3id.org/wmto#spaceID
+:spaceID rdf:type owl:DatatypeProperty ;
+         rdfs:domain <https://w3id.org/rec#Architecture> ;
+         rdfs:comment "Space unique identifier defined by the organization to identify buildings, floors, rooms." ;
+         rdfs:isDefinedBy "https://example.org/UniToWorkplaceManagementOntology#" ;
+         rdfs:label "spaceID" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/org#OrganizationalUnit
+<http://www.w3.org/ns/org#OrganizationalUnit> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/org#Post
+<http://www.w3.org/ns/org#Post> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/org#Role
+<http://www.w3.org/ns/org#Role> rdf:type owl:Class ;
+                                owl:equivalentClass <https://schema.org/OrganizationRole> .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class ;
+                                  owl:equivalentClass <https://w3id.org/rec#Agent> .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> owl:equivalentClass <https://schema.org/Person> .
+
+
+###  https://schema.org/AllocateAction
+<https://schema.org/AllocateAction> rdf:type owl:Class .
+
+
+###  https://schema.org/OrganizationRole
+<https://schema.org/OrganizationRole> rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Building
+<https://w3id.org/bot#Building> rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Space
+<https://w3id.org/bot#Space> rdf:type owl:Class ;
+                             owl:equivalentClass <https://w3id.org/rec#Room> .
+
+
+###  https://w3id.org/rec#Agent
+<https://w3id.org/rec#Agent> rdf:type owl:Class .
+
+
+###  https://w3id.org/rec#Architecture
+<https://w3id.org/rec#Architecture> rdf:type owl:Class .
+
+
+###  https://w3id.org/rec#Asset
+<https://w3id.org/rec#Asset> rdf:type owl:Class .
+
+
+###  https://w3id.org/rec#Office
+<https://w3id.org/rec#Office> rdf:type owl:Class .
+
+
+###  https://w3id.org/rec#Room
+<https://w3id.org/rec#Room> rdf:type owl:Class .
+
+
+###  https://w3id.org/wmto#AssetAllocation
+:AssetAllocation rdf:type owl:Class ;
+                 rdfs:subClassOf <https://schema.org/AllocateAction> ;
+                 rdfs:comment "To allocate ICT Assets to employees or Furniture Assets to workplaces/offices/rooms." .
+
+
+###  https://w3id.org/wmto#EmploymentTypeEnum
+:EmploymentTypeEnum rdf:type owl:Class ;
+                    rdfs:comment "Collection of individuals defining the types of employment contract available in the use case organization" ;
+                    rdfs:label "Employment Type Enumeration" .
+
+
+###  https://w3id.org/wmto#FurnitureAssetTypeEnum
+:FurnitureAssetTypeEnum rdf:type owl:Class ;
+                        rdfs:comment "Collection of Individuals describing Furniture assets available in the use case organization" ;
+                        rdfs:label "Furniture Assets Type Enumeration" .
+
+
+###  https://w3id.org/wmto#IctAssetTypeEnum
+:IctAssetTypeEnum rdf:type owl:Class ;
+                  rdfs:comment "Collection of Individuals describing ICT assets available in the use case organization" ;
+                  rdfs:label "ICT Assets Type Enumeration" .
+
+
+###  https://w3id.org/wmto#OrgUnitTypeEnum
+:OrgUnitTypeEnum rdf:type owl:Class ;
+                 rdfs:comment "Collection of individuals defining the types of OrganizationalUnits available in the use case organization" ;
+                 rdfs:label "Organizational Unit Type Enumeration" .
+
+
+###  https://w3id.org/wmto#RoleTypeEnum
+:RoleTypeEnum rdf:type owl:Class ;
+              rdfs:comment "Collection of Individuals describing organizational roles available in the use case organization" ;
+              rdfs:label "Role Type Enumeration" .
+
+
+###  https://w3id.org/wmto#WPAllocation
+:WPAllocation rdf:type owl:Class ;
+              rdfs:subClassOf <https://schema.org/AllocateAction> ;
+              rdfs:comment "To allocate users/employees to a workplace/office." ;
+              rdfs:label "WorkplaceAllocation" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/wmto#Area
+:Area rdf:type owl:NamedIndividual ,
+               :OrgUnitTypeEnum ;
+      rdfs:comment "Area" .
+
+
+###  https://w3id.org/wmto#CE
+:CE rdf:type owl:NamedIndividual ,
+             :RoleTypeEnum ;
+    rdfs:comment "Collaboratore Esterno (External Collaborator)" .
+
+
+###  https://w3id.org/wmto#Chair
+:Chair rdf:type owl:NamedIndividual ,
+                :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Contract
+:Contract rdf:type owl:NamedIndividual ,
+                   :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#DC
+:DC rdf:type owl:NamedIndividual ,
+             :RoleTypeEnum ;
+    rdfs:comment "Dipendente di Cooperativa (Cooperative Employee)" .
+
+
+###  https://w3id.org/wmto#Desk
+:Desk rdf:type owl:NamedIndividual ,
+               :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Desktop
+:Desktop rdf:type owl:NamedIndividual ,
+                  :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#DirOU
+:DirOU rdf:type owl:NamedIndividual ,
+                :RoleTypeEnum ;
+       rdfs:comment "Dirigente di Unità Organizzativa" .
+
+
+###  https://w3id.org/wmto#Directorate
+:Directorate rdf:type owl:NamedIndividual ,
+                      :OrgUnitTypeEnum ;
+             rdfs:comment "Direzione" .
+
+
+###  https://w3id.org/wmto#DrawerUnit
+:DrawerUnit rdf:type owl:NamedIndividual ,
+                     :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#ErgonomicChair
+:ErgonomicChair rdf:type owl:NamedIndividual ,
+                         :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#FullTime
+:FullTime rdf:type owl:NamedIndividual ,
+                   :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#Internship
+:Internship rdf:type owl:NamedIndividual ,
+                     :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#Laptop
+:Laptop rdf:type owl:NamedIndividual ,
+                 :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#MeetingTable
+:MeetingTable rdf:type owl:NamedIndividual ,
+                       :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#NonProfitVolunteering
+:NonProfitVolunteering rdf:type owl:NamedIndividual ,
+                                :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#Office
+:Office rdf:type owl:NamedIndividual ,
+                 :OrgUnitTypeEnum ;
+        rdfs:comment "Ufficio" .
+
+
+###  https://w3id.org/wmto#OnCall
+:OnCall rdf:type owl:NamedIndividual ,
+                 :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#PTA
+:PTA rdf:type owl:NamedIndividual ,
+              :RoleTypeEnum ;
+     rdfs:comment "Personale Tecnico Amministrativo (PTA)" .
+
+
+###  https://w3id.org/wmto#PartTime
+:PartTime rdf:type owl:NamedIndividual ,
+                   :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#Printer
+:Printer rdf:type owl:NamedIndividual ,
+                  :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#ProjectUnit
+:ProjectUnit rdf:type owl:NamedIndividual ,
+                      :OrgUnitTypeEnum ;
+             rdfs:comment "Unità di Progetto" .
+
+
+###  https://w3id.org/wmto#RArea
+:RArea rdf:type owl:NamedIndividual ,
+                :RoleTypeEnum ;
+       rdfs:comment "Responsabile di Area" .
+
+
+###  https://w3id.org/wmto#RSez
+:RSez rdf:type owl:NamedIndividual ,
+               :RoleTypeEnum ;
+      rdfs:comment "Responsabile di Sezione" .
+
+
+###  https://w3id.org/wmto#RUProg
+:RUProg rdf:type owl:NamedIndividual ,
+                 :RoleTypeEnum ;
+        rdfs:comment "Responsabile di Unità di Progetto" .
+
+
+###  https://w3id.org/wmto#RUff
+:RUff rdf:type owl:NamedIndividual ,
+               :RoleTypeEnum ;
+      rdfs:comment "Responsabile di Ufficio" .
+
+
+###  https://w3id.org/wmto#Secretary
+:Secretary rdf:type owl:NamedIndividual ,
+                    :RoleTypeEnum .
+
+
+###  https://w3id.org/wmto#Section
+:Section rdf:type owl:NamedIndividual ,
+                  :OrgUnitTypeEnum ;
+         rdfs:comment "Sezione" .
+
+
+###  https://w3id.org/wmto#ShelvingUnit
+:ShelvingUnit rdf:type owl:NamedIndividual ,
+                       :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Smartboard
+:Smartboard rdf:type owl:NamedIndividual ,
+                     :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Smartphone
+:Smartphone rdf:type owl:NamedIndividual ,
+                     :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#StaffUnit
+:StaffUnit rdf:type owl:NamedIndividual ,
+                    :OrgUnitTypeEnum ;
+           rdfs:comment "Staff" .
+
+
+###  https://w3id.org/wmto#StorageCabinet
+:StorageCabinet rdf:type owl:NamedIndividual ,
+                         :FurnitureAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Tablet
+:Tablet rdf:type owl:NamedIndividual ,
+                 :IctAssetTypeEnum .
+
+
+###  https://w3id.org/wmto#Temporary
+:Temporary rdf:type owl:NamedIndividual ,
+                    :EmploymentTypeEnum .
+
+
+###  https://w3id.org/wmto#Workstation
+:Workstation rdf:type owl:NamedIndividual ,
+                      :IctAssetTypeEnum .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
